@@ -4,3 +4,6 @@ JeeS3Dom.wgt
 .rds_delta
 .settings
 .sign
+config-bak.xml
+config-clean.xml
+/js/httprequest-orig.js

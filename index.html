@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>JeeS3Dom</title>
+	<link rel="stylesheet" href="lib/tau/wearable/theme/default/tau.min.css">
+	<link rel="stylesheet" media="all and (-tizen-geometric-shape: circle)" href="lib/tau/wearable/theme/default/tau.circle.min.css">
+	<!-- load theme file for your application -->
+	<link rel="stylesheet" href="css/style-basic.css">
+</head>
+<body onload="initJeedomValue(); return false;">
+	
+<!-- Main Page -->    
+    
+	<div class="ui-page ui-page-active" id="main">
+		<header class="ui-header">
+			<h2 class="ui-title">Jeedom Gear S3</h2>
+		</header>
+		<div class="ui-content">
+			<ul class="ui-listview">
+				<li> <a href="#lights"> Lights</a></li>
+				<li> <a href="#alarm"> Alarm</a></li>
+				<li> <a href="#scenario"> Scenario</a></li>
+			</ul>
+		</div>
+	</div>
+	
+<!-- Light Page -->    
+    
+	<div class="ui-page" id="lights">
+		<header class="ui-header">
+			<h2 class="ui-title">Lights</h2>
+		</header>
+		<div class="ui-content content-padding">
+			<ul class="ui-listview">
+				<li> <a onclick="requestsite(436); return false;">Salon On</a></li>
+				<li> <a onclick="requestsite(437); return false;">Salon Off</a></li>
+				<li> <a onclick="requestsite(667); return false;">Enfant 1 On</a></li>
+				<li> <a onclick="requestsite(668); return false;">Enfant 1 Off</a></li>
+				<li> <a onclick="requestsite(427); return false;">Enfant 2 On</a></li>
+				<li> <a onclick="requestsite(428); return false;">Enfant 2 Off</a></li>
+			</ul>
+
+		</div>
+    </div>
+
+<!-- Alarm Page -->        
+    
+	<div class="ui-page" id="alarm">
+		<header class="ui-header">
+			<h2 class="ui-title">Alarm</h2>
+		</header>
+		<div class="ui-content content-padding">
+			<ul class="ui-listview">
+				<li> <a onclick="requestsite(228); return false;">ON</a></li>
+				<li> <a onclick="requestsite(229); return false;">OFF</a></li>
+			</ul>
+		</div>
+	</div>
+
+<!-- Scenario Page -->        
+    
+    <div class="ui-page" id="scenario">
+		<header class="ui-header">
+			<h2 class="ui-title">Scenario</h2>
+		</header>
+		<div class="ui-content content-padding">
+			<ul class="ui-listview">
+				<li> <a onclick="requestsite(128); return false;">Scenario 1</a></li>
+				<li> <a onclick="requestsite(129); return false;">Scenario 1</a></li>
+			</ul>
+		</div>
+	</div>
+ 
+
+ <!-- End of PAGES -->  
+	
+	<script type="text/javascript" src="lib/tau/wearable/js/tau.min.js"></script>
+	<script type="text/javascript" src="js/circle-helper.js"></script>
+	<script type="text/javascript" src="js/httprequest.js"></script>
+	<script src="app.js"></script>
+	<script src="lowBatteryCheck.js"></script>
+</body>
+</html>

@@ -5,8 +5,6 @@
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.normal"/>
     <icon src="ico.ico"/>
-    <tizen:metadata key="IP" value="192.168.1.x"/>
-    <tizen:metadata key="KEY" value="2ycN5TGJ1oejrjghPaK8"/>
     <name>JeeS3Dom</name>
     <tizen:privilege name="http://tizen.org/privilege/internet"/>
     <tizen:privilege name="http://tizen.org/privilege/application.launch"/>

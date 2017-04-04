@@ -8,7 +8,7 @@
 	<!-- load theme file for your application -->
 	<link rel="stylesheet" href="css/style-basic.css">
 </head>
-<body onload="initJeedomValue(); return false;">
+<body onload="initJeedomValue();initJeedomJsonValue(); return false;">
 	
 <!-- Main Page -->    
     
@@ -19,6 +19,7 @@
 		<div class="ui-content content-padding">
 			<ul class="ui-listview" style="text-align:center">
 				<li> <a href="#lights"> Lights</a></li>
+                <li> <a href="#lightsswipe"> LightsSwipe</a></li>				
 				<li> <a href="#alarm"> Alarm</a></li>
 				<li> <a href="#scenario"> Scenario</a></li>
 			</ul>
@@ -45,6 +46,32 @@
 		</div>
     </div>
 
+<!-- Light Swipe Page -->    
+    
+    <div class="ui-page" id="lightsswipe">
+		<header class="ui-header ui-button">
+			<h2 class="ui-title">Lights Swipe</h2>
+		</header>
+		<div class="ui-content">
+			<ul class="ui-listview ui-swipelist-list">
+				<li>Salon</li>
+				<li>Enfant 1</li>
+				<li>Enfant 2</li>
+			</ul>
+			<div class="ui-swipelist">
+				<div class="ui-swipelist-left">
+					<div class="ui-swipelist-icon"></div>
+					<div class="ui-swipelist-text">On</div>
+				</div>
+				<div class="ui-swipelist-right">
+					<div class="ui-swipelist-icon"></div>
+					<div class="ui-swipelist-text">Off</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/list_swipelist.js"></script>
+	</div>
+   
 <!-- Alarm Page -->        
 <!-- Change the xxx in the requestsite call to the proper value --> 
     

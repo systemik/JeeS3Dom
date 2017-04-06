@@ -8,10 +8,11 @@ function initJeedomValue() {
 
 // Save Box value
 
-function saveJeedomKeyValue() {
+function saveJeedomValue() {
+	var addressValue = document.getElementById("addressValue").value;
 	var keyValue = document.getElementById("keyValue").value;
-    localStorage.setItem("SavedKey",keyValue);
-
+	localStorage.setItem("SavedAddress",addressValue);
+	localStorage.setItem("SavedKey",keyValue);
 }
 
 //Load Box JSON value on start

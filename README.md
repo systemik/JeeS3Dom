@@ -2,7 +2,7 @@
 Gear S3 Jeedom Web App
 
 
-You should import this in TIZEN IDE
+You should import this in TIZEN IDE (Tizen Studio)
 
 You have to change the following :
 

@@ -6,6 +6,14 @@ function initJeedomValue() {
 	localStorage.setItem("KEY", "2xcN5TGJ1fXAkjghPaK8");
 }
 
+// Save Box value
+
+function saveJeedomKeyValue() {
+	var keyValue = document.getElementById("keyValue").value;
+    localStorage.setItem("SavedKey",keyValue);
+
+}
+
 //Load Box JSON value on start
 //Indiquer l'adresse IP/url et la clé jeedom
 

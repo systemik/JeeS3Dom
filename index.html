@@ -22,6 +22,7 @@
                 <li> <a href="#lightsswipe"> LightsSwipe</a></li>				
 				<li> <a href="#alarm"> Alarm</a></li>
 				<li> <a href="#scenario"> Scenario</a></li>
+				<li> <a href="#settingskey"> Settings</a></li>
 			</ul>
 		</div>
 	</div>
@@ -102,6 +103,34 @@
 		</div>
 	</div>
  
+<!-- Settings KEY Page -->        
+    
+    <div class="ui-page" id="settingskey">
+		<header class="ui-header">
+			<h2 class="ui-title">Jeedom Key</h2>
+		</header>
+<!--		<div class="ui-content">
+			<input type="checkbox" checked/>
+			<input type="checkbox" >
+		</div>
+-->
+      		<div class="ui-content">
+				<label>Key: </label>
+				<label>Value: <input type="text" id="keyValue"></label>
+			</div>
+
+        <footer class="ui-footer ui-bottom-button">
+			<a onclick="saveJeedomKeyValue(); return false;" href="#popupToast" class="ui-btn">Save</a>
+   	    </footer>
+	</div>
+
+ <!-- Popup Save -->        
+   
+    <div id="popupToast" class="ui-popup ui-popup-toast toast-text-only">
+        <div class="ui-popup-content">
+					Your setting<br>
+                    has been saved
+        </div>
 
  <!-- End of PAGES -->  
 	

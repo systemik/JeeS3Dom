@@ -84,7 +84,7 @@ xhttp3.send(JSON.stringify({"jsonrpc": "2.0", "method":"scenario::all","params":
 // Les commandes sont en http. On peut mettre https si besoin.
 
 
-function requestsite(jeedomcmd)
+function requestcommand(jeedomcmd)
  {
 	
 var myKeyValue, myIPValue;
@@ -107,4 +107,37 @@ client.onreadystatechange = function() {
 };
 client.send();
 };
+
+//Basic HTTP request to launch command
+//Les commandes sont en http. On peut mettre https si besoin.
+
+
+function requestscenario(jeedomcmd)
+{
+	
+	var myKeyValue, myIPValue;
+		
+	myKeyValue =  localStorage.getItem("KEY");
+	myIPValue =  localStorage.getItem("IP");
+	console.log("KEY Value: " + myKeyValue);
+	console.log("IP Value: " + myIPValue);
+		
+	var client = new XMLHttpRequest();
+	client.open("GET", "http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=scenario&id=" + jeedomcmd + "&action=start");
+	console.log("http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=scenario&id=" + jeedomcmd + "&action=start" );
+	client.onreadystatechange = function() {
+	    if (client.readyState == 4) {
+	        if(client.status == 200) {
+	           console.log(client.responseText);
+	           navigator.vibrate([500, 500, 500]);
+	        }
+	    }
+	};
+	client.send();
+	};
+
+
+http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#&type=scenario&id=#ID#&action=#ACTION#
+
+
 

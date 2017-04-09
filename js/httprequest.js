@@ -112,7 +112,7 @@ client.send();
 //Les commandes sont en http. On peut mettre https si besoin.
 
 
-function requestscenario(jeedomcmd)
+function requestscenario(jeedomscenario)
 {
 	
 	var myKeyValue, myIPValue;
@@ -123,8 +123,8 @@ function requestscenario(jeedomcmd)
 	console.log("IP Value: " + myIPValue);
 		
 	var client = new XMLHttpRequest();
-	client.open("GET", "http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=scenario&id=" + jeedomcmd + "&action=start");
-	console.log("http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=scenario&id=" + jeedomcmd + "&action=start" );
+	client.open("GET", "http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=scenario&id=" + jeedomscenario + "&action=start");
+	console.log("http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=scenario&id=" + jeedomscenario + "&action=start" );
 	client.onreadystatechange = function() {
 	    if (client.readyState == 4) {
 	        if(client.status == 200) {
@@ -137,7 +137,6 @@ function requestscenario(jeedomcmd)
 	};
 
 
-http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#&type=scenario&id=#ID#&action=#ACTION#
 
 
 

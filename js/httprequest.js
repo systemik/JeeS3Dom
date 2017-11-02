@@ -136,7 +136,81 @@ function requestscenario(jeedomscenario)
 	client.send();
 	};
 
+	
+function requestvoice()
+{	
+	var appControlData = new tizen.ApplicationControlData('http://tizen.org/appcontrol/data/input_type', ['input_voice']);
+	var myKeyValue, myIPValue;
+	
+	myKeyValue =  localStorage.getItem("KEY");
+	myIPValue =  localStorage.getItem("IP");
+	console.log("KEY Value: " + myKeyValue);
+	console.log("IP Value: " + myIPValue);
+	
+	var appControl = new tizen.ApplicationControl("http://tizen.org/appcontrol/operation/get_input", null, null, null, [appControlData], null);
+	var appControlReplyCallback = {
+		    onsuccess: function(data) {
+		        for (var i = 0; i < data.length; i++) {
+		            console.log('ret: ' + data[i].key);
+		            console.log('result: ' + data[i].value[0]);
+		            var client = new XMLHttpRequest();
+		        	client.open("GET", "http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=interact&query=" + data[i].value[0] + "&utf8=1");
+		        	console.log("http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=interact&query=" + data[i].value[0] + "&utf8=1" );
+		        	client.onreadystatechange = function() {
+		        	    if (client.readyState == 4) {
+		        	        if(client.status == 200) {
+		        	           console.log(client.responseText);
+		        	           navigator.vibrate([500, 500, 500]);
+		        	        }
+		        	    }
+		        	};
+		        	client.send();
+		        }
+		    },
+		    onfailure: function() {
+		        console.log('The launch application control failed');
+		    }
+		}
+	tizen.application.launchAppControl(appControl, null, function() {console.log("launch application control succeed");}, function(e) {console.log("launch application control failed. reason: " + e.message);}, appControlReplyCallback);
+	console.log('launch application done');
+};
 
 
-
-
+function requesttext()
+{	
+	var appControlData = new tizen.ApplicationControlData('http://tizen.org/appcontrol/data/input_type', ['input_voice']);
+	var myKeyValue, myIPValue;
+	
+	myKeyValue =  localStorage.getItem("KEY");
+	myIPValue =  localStorage.getItem("IP");
+	console.log("KEY Value: " + myKeyValue);
+	console.log("IP Value: " + myIPValue);
+	
+	var appControl = new tizen.ApplicationControl("http://tizen.org/appcontrol/operation/get_input", null, null, null, null, null);
+	var appControlReplyCallback = {
+		    onsuccess: function(data) {
+		        for (var i = 0; i < data.length; i++) {
+		            console.log('ret: ' + data[i].key);
+		            console.log('result: ' + data[i].value[0]);
+				
+		            var client = new XMLHttpRequest();
+		        	client.open("GET", "http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=interact&query=" + data[i].value[0] + "&utf8=1");
+		        	console.log("http://" + myIPValue + "/core/api/jeeApi.php?apikey=" + myKeyValue + "&type=interact&query=" + data[i].value[0] + "&utf8=1" );
+		        	client.onreadystatechange = function() {
+		        	    if (client.readyState == 4) {
+		        	        if(client.status == 200) {
+		        	           console.log(client.responseText);
+		        	           navigator.vibrate([500, 500, 500]);
+		        	        }
+		        	    }
+		        	};
+		        	client.send();
+		        }
+		    },
+		    onfailure: function() {
+		        console.log('The launch application control failed');
+		    }
+		}
+	tizen.application.launchAppControl(appControl, null, function() {console.log("launch application control succeed");}, function(e) {console.log("launch application control failed. reason: " + e.message);}, appControlReplyCallback);
+	console.log('launch application done');	
+};
